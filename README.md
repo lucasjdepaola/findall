@@ -25,3 +25,8 @@ When executing short searches, an fd (recursive parallel file finder) wrapper th
 ![Benchmark](./metrics/benchmark1.png)
 
 As you can see, findall beats fall by 2x.
+
+fd is the number one competitor to this tool, as the native ```ls -r``` command cannot traverse directories recursively in a reasonable amount of time
+
+![lsr](./metrics/lsrbenchmark.png)
+6 minutes to find all .java files, in comparison to findall finding all java files containing a string in 6 seconds
