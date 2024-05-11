@@ -20,5 +20,8 @@ If you're overwhelmed by a massive amount of files, and would like to scan your 
 
 ## Benchmarks
 
-When executing short searches, an fd (recursive parallel file finder) wrapper that I created can win by a few seconds. When searching more common files, which are larger in size, findall will win by a significant amount. This is because findall closes a the file once a match has been made.
+When executing short searches, an fd (recursive parallel file finder) wrapper that I created can win by a few seconds. When searching more common files, which are larger in size, findall will win by a significant amount. This is because findall closes a the file once a match has been made. The "fall" command is the fd wrapper using grep, the findall is my tool.
+
 ![Benchmark](./metrics/benchmark1.png)
+
+As you can see, findall beats fall by 2x.
