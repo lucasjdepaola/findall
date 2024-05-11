@@ -16,8 +16,7 @@ func handle(err error) {
 }
 
 func getExtension(fileName string) string {
-	str := strings.Split(fileName, ".")
-	return str[len(str)-1]
+	return fileName[max(0, strings.LastIndex(fileName, ".")+1):]
 }
 
 func grepFile(findString string, path string) bool {
@@ -28,7 +27,7 @@ func grepFile(findString string, path string) bool {
 	for scanner.Scan() {
 		tx := scanner.Text()
 		if strings.Contains(tx, findString) {
-			fmt.Println(path)
+			fmt.Printf("%s\n", path)
 			return true
 		}
 	}
@@ -37,7 +36,7 @@ func grepFile(findString string, path string) bool {
 
 func recurseDir(extension string, findString string) {
 	conf := fw.Config{
-		Follow: false,
+		NumWorkers: 16,
 	}
 	wd, err := os.Getwd()
 	handle(err)
@@ -45,7 +44,6 @@ func recurseDir(extension string, findString string) {
 		func(path string, entry fs.DirEntry, err error) error {
 			if entry.IsDir() {
 			} else if getExtension(entry.Name()) == extension {
-				// now cat further into the file, and find string within such file
 				grepFile(findString, path)
 			}
 			return nil
