@@ -30,3 +30,4 @@ fd is the number one competitor to this tool, as the native ```ls -r``` command 
 
 ![lsr](./metrics/lsrbenchmark.png)
 6 minutes to find all .java files, in comparison to findall finding all java files containing a string in 6 seconds
+![findalljava](./metrics/javafindallbenchmark.png)
