@@ -13,3 +13,7 @@ To use this program, you can either download the binary in the bin directory, or
 ## Speed
 
 Leveraging fastwalk, this program is competitive with fd, and faster than powershell's ```ls -r```
+
+## more serious usage
+
+If you're overwhelmed by a massive amount of files, and would like to scan your own computer of any vulnerable words such as password, seed, privkey, etc, this program would be one of your only chances to do such without wrapping fd. ```findall txt password``` in root directory can scan your entire computer for password related text inside a file, allowing you to find any bad security practices in around a minute.
